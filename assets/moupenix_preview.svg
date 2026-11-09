@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0f17"/>
+      <stop offset="100%" stop-color="#1e1e2e"/>
+    </linearGradient>
+
+    <!-- Eggplant Purple Gradient -->
+    <linearGradient id="eggplantGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8E24AA"/>
+      <stop offset="100%" stop-color="#4A148C"/>
+    </linearGradient>
+
+    <!-- Green Stem Gradient -->
+    <linearGradient id="stemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#81C784"/>
+      <stop offset="100%" stop-color="#2E7D32"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <style>
+      .cursor-group {
+        animation: cursorMove 4.5s ease-in-out infinite;
+        transform-origin: 200px 180px;
+      }
+      .shaft {
+        animation: shaftStretch 4.5s ease-in-out infinite;
+        transform-origin: 0 0;
+      }
+      .balls {
+        animation: ballJiggle 4.5s ease-in-out infinite;
+      }
+      .particle {
+        animation: popBurst 4.5s ease-out infinite;
+      }
+      .text-title {
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+      .text-sub {
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        font-weight: 500;
+      }
+
+      @keyframes cursorMove {
+        0%   { transform: translate(160px, 140px) rotate(-35deg); }
+        25%  { transform: translate(320px, 80px) rotate(-15deg); }
+        45%  { transform: translate(460px, 160px) rotate(20deg); }
+        55%  { transform: translate(460px, 160px) rotate(20deg) scale(1.15); }
+        60%  { transform: translate(460px, 160px) rotate(20deg) scale(0.95); }
+        80%  { transform: translate(250px, 220px) rotate(-55deg); }
+        100% { transform: translate(160px, 140px) rotate(-35deg); }
+      }
+
+      @keyframes shaftStretch {
+        0%, 100% { transform: scaleY(1.0) scaleX(1.0); }
+        25%      { transform: scaleY(1.35) scaleX(0.85); }
+        45%      { transform: scaleY(1.45) scaleX(0.82); }
+        55%      { transform: scaleY(1.55) scaleX(0.95); } /* clique tension */
+        60%      { transform: scaleY(0.9) scaleX(1.1); }  /* pop release */
+        80%      { transform: scaleY(1.25) scaleX(0.88); }
+      }
+
+      @keyframes ballJiggle {
+        0%, 100% { transform: translate(0, 0); }
+        25%      { transform: translate(-3px, -5px); }
+        45%      { transform: translate(-6px, 2px); }
+        55%      { transform: translate(0, 2px); }
+        60%      { transform: translate(2px, -3px); }
+        80%      { transform: translate(4px, 4px); }
+      }
+
+      @keyframes popBurst {
+        0%, 54% { opacity: 0; transform: translate(0, 0) scale(0); }
+        56%     { opacity: 1; transform: translate(0, -5px) scale(1); }
+        65%     { opacity: 0.8; transform: translate(15px, -25px) scale(1.2); }
+        75%     { opacity: 0; transform: translate(25px, -15px) scale(0.3); }
+        100%    { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="360" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle grid lines -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90" />
+    <line x1="0" y1="180" x2="800" y2="180" />
+    <line x1="0" y1="270" x2="800" y2="270" />
+    <line x1="200" y1="0" x2="200" y2="360" />
+    <line x1="400" y1="0" x2="400" y2="360" />
+    <line x1="600" y1="0" x2="600" y2="360" />
+  </g>
+
+  <!-- Title & Branding -->
+  <g transform="translate(40, 55)">
+    <text x="0" y="0" fill="#F5C2E7" font-size="28" class="text-title">🍆 MOUPENIX</text>
+    <text x="0" y="24" fill="#A6ADC8" font-size="14" class="text-sub">The Dynamic Elastic Eggplant Cursor for Windows</text>
+  </g>
+
+  <!-- Badges Mock in SVG -->
+  <g transform="translate(40, 100)">
+    <rect x="0" y="0" width="85" height="22" rx="4" fill="#313244"/>
+    <text x="8" y="15" fill="#89B4FA" font-size="11" font-family="system-ui" font-weight="bold">Windows 11</text>
+    
+    <rect x="95" y="0" width="80" height="22" rx="4" fill="#313244"/>
+    <text x="103" y="15" fill="#A6E3A1" font-size="11" font-family="system-ui" font-weight="bold">60 FPS API</text>
+
+    <rect x="185" y="0" width="85" height="22" rx="4" fill="#313244"/>
+    <text x="193" y="15" fill="#FAB387" font-size="11" font-family="system-ui" font-weight="bold">Elasticity</text>
+  </g>
+
+  <!-- ANIMATED CURSOR PREVIEW -->
+  <g class="cursor-group">
+    <!-- Particles on Click -->
+    <g class="particle" transform="translate(0, 0)">
+      <circle cx="-15" cy="-8" r="4" fill="#E1BEE7" filter="url(#glow)"/>
+      <circle cx="5" cy="-18" r="3.5" fill="#FFFFFF" />
+      <circle cx="18" cy="-6" r="4" fill="#E1BEE7" />
+    </g>
+
+    <!-- Testicles / Base Bulges -->
+    <g class="balls">
+      <ellipse cx="-16" cy="72" rx="20" ry="20" fill="url(#eggplantGrad)" stroke="#2E0854" stroke-width="2.5"/>
+      <ellipse cx="16" cy="72" rx="20" ry="20" fill="url(#eggplantGrad)" stroke="#2E0854" stroke-width="2.5"/>
+      <!-- Green Calyx / Stem Leaves (Berinjela) -->
+      <path d="M-18,65 Q-8,55 0,70 Q8,55 18,65 Q10,78 0,72 Q-10,78 -18,65 Z" fill="url(#stemGrad)" stroke="#1B5E20" stroke-width="1.5"/>
+    </g>
+
+    <!-- Shaft & Head (Stretching) -->
+    <g class="shaft">
+      <!-- Main Body -->
+      <path d="M -15,70 L -13,20 C -13,10 -22,10 -18,-5 C -15,-20 0,-30 0,-30 C 0,-30 15,-20 18,-5 C 22,10 13,10 13,20 L 15,70 Z" 
+            fill="url(#eggplantGrad)" stroke="#2E0854" stroke-width="2.5"/>
+      
+      <!-- Vein / Highlight Accent -->
+      <path d="M -6,55 Q 8,35 -2,15 Q 6,0 0,-15" fill="none" stroke="#BA68C8" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+      
+      <!-- Tip Slit (Hotspot Target) -->
+      <line x1="0" y1="-30" x2="0" y2="-22" stroke="#2E0854" stroke-width="2.5" stroke-linecap="round"/>
+      
+      <!-- Target Pointer Indicator Ring -->
+      <circle cx="0" cy="-30" r="5" fill="none" stroke="#F5C2E7" stroke-width="1.5" stroke-dasharray="2,2"/>
+    </g>
+  </g>
+
+  <!-- Feature callouts on the right -->
+  <g transform="translate(530, 110)">
+    <text x="0" y="20" fill="#CDD6F4" font-size="14" class="text-sub">⚡ Alongamento por velocidade</text>
+    <text x="0" y="55" fill="#CDD6F4" font-size="14" class="text-sub">🎯 Hotspot com 100% de precisão</text>
+    <text x="0" y="90" fill="#CDD6F4" font-size="14" class="text-sub">💥 Gotículas &amp; Efeitos no clique</text>
+    <text x="0" y="125" fill="#CDD6F4" font-size="14" class="text-sub">🎨 6 Temas Visuais (Menu F9)</text>
+    <text x="0" y="160" fill="#A6E3A1" font-size="13" class="text-sub">📦 Executável portátil (.exe)</text>
+  </g>
+
+  <!-- Bottom banner info -->
+  <g transform="translate(40, 325)">
+    <text x="0" y="0" fill="#6C7086" font-size="12" class="text-sub">Pressione F9 para abrir o painel de configurações • Pressione ESC para fechar</text>
+  </g>
+</svg>
+

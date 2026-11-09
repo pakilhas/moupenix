@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller build outputs
+build/
+*.spec
+
+# Keep dist if they want to distribute the exe, or ignore if they prefer release attachments
+# dist/
+
+# Local config file
+.moupenix_config.json
+*.bat.log
+
